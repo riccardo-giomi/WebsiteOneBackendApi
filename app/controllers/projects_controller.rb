@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :find_project, only: [:update, :destroyi, :show]
+  before_action :find_project, only: [:update, :destroy, :show]
 
   def create
     @project = Project.create(project_params)
@@ -30,11 +30,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if @project.destroy
-      head 204
-    else
-      render status: 404
-    end
+    @project.destroy
+    head 204
   end
 
   private

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe ProjectsController do
+RSpec.describe 'ProjectController#create' do
   let(:path) { '/projects' }
   let(:headers) { {} }
 

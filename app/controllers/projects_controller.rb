@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    render json: @projects, status: 200
+    render json: @projects, status: :ok
   end
 
   def update

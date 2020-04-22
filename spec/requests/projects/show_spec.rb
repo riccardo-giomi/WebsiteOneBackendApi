@@ -10,7 +10,7 @@ RSpec.describe 'ProjectsController#show' do
     end
 
     let(:path) { project_path(project) }
-    
+
     it 'responds with status code 200' do
       get(path)
       expect(response.status).to eq 200

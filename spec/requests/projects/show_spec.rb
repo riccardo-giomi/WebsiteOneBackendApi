@@ -11,9 +11,10 @@ RSpec.describe 'ProjectsController#show' do
         description: 'Amazing project description'
       }
     end
+
     let(:project) { create(:project, project_attributes) }
-    let(:path) { project_path(project) }
-    before(:example) { get(path) }
+
+    before(:example) { get(project_path(project)) }
 
     it 'responds with status code 200' do
       expect(response.status).to eq 200
@@ -23,4 +24,15 @@ RSpec.describe 'ProjectsController#show' do
       expect(response.parsed_body.deep_symbolize_keys!).to include(project_attributes)
     end
   end
+
+  context 'with invalid parameters' do
+    let(:project) { 2 } 
+
+    before(:example) { get(project_path(project)) }
+
+    it 'responds with 404' do
+      expect(response.status).to eq 404
+    end
+  end
+
 end

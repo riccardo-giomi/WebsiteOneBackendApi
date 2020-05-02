@@ -36,7 +36,8 @@ RSpec.describe 'ProjectController#update' do
       end
 
       it "doesn't update the project" do
-        # expect(response.parsed_body.deep_symbolize_keys!).not_to include(project_params)
+        not_updated_project = Project.find(project.id)
+        expect(not_updated_project.title).to eq(project.title)
       end
 
       context 'with an empty param object' do
@@ -49,4 +50,3 @@ RSpec.describe 'ProjectController#update' do
     end
   end
 end
-
